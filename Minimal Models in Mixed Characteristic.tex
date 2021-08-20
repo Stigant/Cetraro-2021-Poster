@@ -1,0 +1,277 @@
+% Gemini theme
+% https://github.com/anishathalye/gemini
+%
+% We try to keep this Overleaf template in sync with the canonical source on
+% GitHub, but it's recommended that you obtain the template directly from
+% GitHub to ensure that you are using the latest version.
+
+\documentclass[final]{beamer}
+\listfiles
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[size=a0,scale=1.1]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{IC}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.00\paperwidth}
+\setlength{\colwidth}{0.19\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% ====================
+% Title
+% ====================
+
+\title{Minimal Models in Mixed Characteristic}
+
+\author{Liam Stigant}
+
+\institute[shortinst]{Imperial College London}
+
+
+% ====================
+% Footer (optional)
+% ====================
+
+\footercontent{
+	22/09/22 \hfill Algebraic Geometry in Cetraro 2021 together with Ciro Ciliberto \hfill
+	\href{mailto:l.stigant18@imperial.ac.uk}{L.Stigant18@imperial.ac.uk}}
+% (can be left out to remove footer)
+
+
+% ====================
+% Body
+% ====================
+
+\begin{document}
+	
+	\begin{frame}[t, fragile]
+	\begin{columns}[t]
+		\separatorcolumn
+		
+		\begin{column}{\colwidth}
+			
+			\begin{block}{Abstract}
+				
+				Recent work of Bhatt et al. has established the bulk of the Minimal Model Program for klt threefolds over suitable mixed characteristic bases. This poster focuses on subsequent work to extend and apply these results. In particular on the Abundance and Finiteness of Minimal Models results and their applications to Invariance of Plurigenera and the Sarkisov program respectively.
+				
+			\end{block}
+			
+			\begin{block}{Aims of the Minimal Model Program (MMP):}
+				\begin{enumerate}
+					\item \textbf{To show there is a distinguished class of representatives for a given birational class of varieties}
+					\item \textbf{To show these representatives have 'nice' geometry}
+				\end{enumerate}
+				
+				In dimension $2$ these representatives have some clear minimality properties, hence the name. In the modern formulation if we start with a variety $X$ then we seek a birational model $X'$ with 'good' singularities such that either  
+				\begin{enumerate}
+					\item \textbf{$X'$ is a Minimal Model} - it has nef canonical divisor $K_{X'}$
+					\item \textbf{$X'$ is a Mori Fibre Space} - it admits a fibration $X' \to  Z$ such that $-K_{X'}$ is ample over $Z$ 
+				\end{enumerate}
+				
+				The output is not unique but it's nature is determined by the curvature of $X$. Either every possible output is a Mori Fibre Space or they are all Minimal Models.
+			\end{block}
+			
+			
+			\begin{block}{Bibliography}
+				\bibliographystyle{amsalpha}
+				\bibliography{refs}
+			\end{block}
+			
+		\end{column}
+		
+		\separatorcolumn
+		
+		\begin{column}{1.5\colwidth}
+			
+			
+			
+			\begin{block}{The Abundance Conjecture}
+				
+				The Abundance Conjecture is one of the most important descriptions of the expected geometric properties of minimal models. It is unknown in general.
+				
+				It says that when $K_{X}$ is nef, then it should be semiample. The induced morphism is called the \textbf{Ample Model}
+				
+				Since the result holds for surfaces in characteristic $0$, it is immediate that there is a rational map $\phi: X \dashrightarrow Y$ induced by $K_{X}+B$. After \cite{bhatt2020}, the main difficulties came in proving this result when $\dim Y =2$.
+				
+			\end{block}
+			
+			
+			\begin{alertblock}{Abundance Theorem}
+				Let $(X,B)$ be a klt threefold $R$-pair with $\mathbb{R}$-boundary. If $K_X+B$ is nef, then it is semiample.
+			\end{alertblock}  
+			
+			\begin{block}{Idea of proof}
+				
+				\begin{enumerate}
+					\item \textbf{$L=K_{X}+B$ should be EWM} - that is there is a contraction to an algebraic space $Z$ which looks numerically like the fibration we want \\
+					\item After some birational modification $X \to Z$ should be \textbf{equidimensional}\\
+					\item If $C$ is a mixed charactertistic curve on $Z$, then $X_{C}=X\times_{Z} C \to C$ is a flat morphism and $L_{C}=L|_{X_{C}}$ is nef, numerically trivial and generically semiample, so \textbf{$L|_{C}$ is semiample}
+					\item If $F$ is any closed fibre of $X \to Z$, then \textbf{$L|_{F} \sim_{\mathbb{R}} 0$}, so \textbf{$L$ must be semiample}
+				\end{enumerate}
+				
+				
+			\end{block}
+			
+			\begin{block}{Application: Asymptotic Invariance of Plurigenera}
+				
+				In characteristic $0$ if $X \to C$ is a smooth family of varieties we expect $h^{0}(X_{t},mK_{X_{t}})$ (the \textbf{plurigenera}) to be invariant for $t \in C$ for $m > 0$.
+				
+				In general this \textbf{fails in mixed characteristic} \cite{Bri20}, even for arbitrarily large $m$.
+				
+				Suppose $X \to C$ is a mixed characteristic family of surfaces. Subject to some conditions on the singularities of the family, we can \textbf{run an MMP which preserves the plurigenera} for large $m$. This leaves us with nef $K_{X}$, thus by Abundance it is semiample and we have $f:X \to Y$ with $f^{*}D=K_{X}$ for some $D$ ample on $Y$.
+				
+				Since $D$ is ample \textbf{$h^{0}(Y_{t},mD|_{Y_{t}})$ is invariant} for large $m$. If we can show these correspond to $h^{0}(X_{t},mK_{X_{t}})$ then we're done.
+				
+				In fact this is true when \textbf{$-K_{X_{t}}$ is big and nef} over $Y_{t}$, so it holds whenever the fibres of $Y$ are not elliptic curves. In this final case the result can fail to hold.
+				
+			\end{block}
+			
+			\begin{alertblock}{Asymptotic Invariance of Plurigenera}
+				
+				Let $f:(X,B)\to R$ be a klt $R$-pair with $\mathbb{Q}$-boundary of dimension $3$. Suppose that all of the following are satisfied:
+				
+				\begin{enumerate}
+					\item $(X,B+X_{k})$ is plt;
+					\item $\dim V_{k}=\dim V -1$ for all non-canonical centres $V$ of $(X,B)$;
+					\item $\mathbf{B}_{-}(K_{X_k}+B_k)$ contains no non-canonical centres of $(X_k,B_k)$.
+				\end{enumerate}
+				
+				Suppose further that at least one of the following holds:
+				\begin{enumerate}
+					\item[(a)] $\kappa(K_{X_{k}}+B_{k}) \neq 1$; or
+					\item[(b)] $B_{k}$ is big over $\text{Proj}(K_{X_{k}}+B_{k})$
+				\end{enumerate}	
+				Then there is $m_{0} \in \mathbb{N}$ such that 
+				$$H^{0}(X_{K},m(K_{X_{K}}+B_{K}))=H^{0}(X_{k},m(K_{X_{k}}+B_{k}))$$
+				for all $m \in m_{0}\mathbb{N}$.
+				
+			\end{alertblock}
+			
+		\end{column}
+		
+		\separatorcolumn
+		
+		\begin{column}{2.5\colwidth}
+			
+			
+			\begin{block}{Geography of Ample Models - Example}
+				
+				Let $S$ be the blowup of $\mathbb{P}^{2}_{k}$ at $2$ points. Let $E_{1},E_{2}$ be the exceptional curves of $S \to \mathbb{P}^{2}_{k}$ and $L$ the strict transform of a line, so $L,E_{1},E_{2}$ span $\text{Pic}(S)$. Choose $A \sim -K_{S}$ with $(S,A+E_{1}+E_{2}+L)$ log smooth. Let $C$ be the triangle spanned by $L,E_{1},E_{2}$. Then for $B \in C$ the minimal model of $K_{S}+A+B$ corresponds to a Mori Fibre Space of $S$ according to a decomposition of $C$ as below. Moreover if $B$ is on the boundary of $C$ the morphism induced by Abundance is the Mori Fibration.
+				
+				\begin{center}
+					\tikzset{every picture/.style={line width=1pt}} %set default line width to 0.75pt        
+					
+					\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-2,xscale=2]
+					%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+					
+					%Shape: Triangle [id:dp7805322996155986] 
+					\draw   (300,20) -- (480,240) -- (120,240) -- cycle ;
+					%Straight Lines [id:da6385330333329691] 
+					\draw    (210,130) -- (390,130) ;
+					%Straight Lines [id:da012291614577248033] 
+					\draw    (210,130) -- (480,240) ;
+					%Straight Lines [id:da6507742575307656] 
+					\draw    (390,130) -- (120,240) ;
+					
+					% Text Node
+					\draw (160,115) node [anchor=north west][inner sep=0.75pt]  [xscale=1,yscale=1]  {$\frac{L+E_{1}}{2}$};
+					% Text Node
+					\draw (395,115) node [anchor=north west][inner sep=0.75pt]  [xscale=1,yscale=1]  {$\frac{L+E_{2}}{2}$};
+					% Text Node
+					\draw (90,230) node [anchor=north west][inner sep=0.75pt]  [xscale=1,yscale=1]   {$ \begin{array}{l}
+						E_{1}\\
+						\end{array}$};
+					% Text Node
+					\draw (485,230) node [anchor=north west][inner sep=0.75pt]  [xscale=1,yscale=1]   {$ \begin{array}{l}
+						E_{2}\\
+						\end{array}$};
+					% Text Node
+					\draw (295,0) node [anchor=north west][inner sep=0.75pt]  [xscale=1,yscale=1]   {$ \begin{array}{l}
+						L\\
+						\end{array}$};
+					% Text Node
+					\draw (230,50) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
+					% Text Node
+					\draw (140,160) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
+					% Text Node
+					\draw (360,50) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
+					% Text Node
+					\draw (440,160) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
+					% Text Node
+					\draw (260,80) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}\times\mathbb{P}^{1}$};
+					% Text Node
+					\draw (200,160) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}^{1}$};
+					% Text Node
+					\draw (375,160) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}^{1}$};
+					% Text Node
+					\draw (295,250) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$k$};
+					% Text Node
+					\draw (295,200) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{2}$};
+					% Text Node
+					\draw (295,135) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$S$};
+					
+					\end{tikzpicture}
+				\end{center}
+			\end{block}
+			\begin{alertblock}{Finiteness of Minimal Models}
+				Let $X$ be a threefold over $R$. Let $C$ be a polytope inside $\mathcal{L}_{A}(V)$. Suppose there is a boundary $A+B \in \mathcal{L}_{A}(V)$ such that $(X,A+B)$ is a klt pair. Then the following hold:
+				
+				\begin{enumerate}
+					\item There are finitely many birational contractions $\phi_{i}:X \dashrightarrow Y_{i}$ such that 
+					\[\mathcal{E}(C) = \bigcup \mathcal{W}_{i}=\mathcal{W}_{\phi_{i}}(C)\]
+					where each $\mathcal{W}_{i}$ is a rational polytope. Moreover if $\phi:X \to Y$ is a wlc model for any choice of $\Delta \in \mathcal{E}(C)$ then $\phi=\phi_{i}$ for some $i$, up to composition with an isomorphism.
+					
+					\item There are finitely many rational maps $\psi_{j}:X \dashrightarrow Z_{j}$ which partition $\mathcal{E}(C)$ into subsets $\mathcal{A}_{\psi_{j}}(C)=\mathcal{A}_{i}$.
+					\item  For each $W_{i}$ there is a $j$ such that we can find a morphism $f_{i,j}: Y_{i} \to Z_{j}$ and $W_{i} \subseteq \overline{A_{j}}$.
+					\item  $\mathcal{E}(C)$ is a rational polytope and $A_{j}$ is a union of the interiors of finitely many rational polytopes.
+				\end{enumerate}
+			\end{alertblock}
+			
+			\begin{block}{Application: Sarkisov Program}
+				If $f:X \to Z$, $g:Y \to W$ are two Mori Fibre Spaces, a Sarkisov link $s:X \dashrightarrow Y$ is one the following.
+				
+				\[\begin{tikzcd}
+				X' \arrow[d] \arrow[r, dotted] \arrow[r, "I", phantom, bend left=49] & Y \arrow[d]  & X' \arrow[r, dotted] \arrow[d] \arrow[r, "II",phantom, bend left=49] & Y' \arrow[d] & X \arrow[r, dotted] \arrow[d] \arrow[r, "III", phantom, bend left=49] & Y' \arrow[d] & X \arrow[d] \arrow[rr, dotted] \arrow[rr, "IV",phantom, bend left] &   & Y \arrow[d]       \\
+				X \arrow[d]                                                          & W \arrow[ld] & X \arrow[d]                                               & Y \arrow[d]  & Z \arrow[rd]                                              & Y \arrow[d]  & Z \arrow[rd, "p"]                                          &   & W \arrow[ld, "q"'] \\
+				Z                                                                    &              & Z \arrow[r, equal]                                                         & W            &                                                           & W            &                                                            & T &                  
+				\end{tikzcd} \]
+				where
+				\begin{itemize}
+					\item The horizontal map is a sequence of flops (codimension 2 birational transformations) for this pair
+					\item Every vertical morphism is a contraction
+					\item If the target of a vertical morphism is $X$ or $Y$ then it is an extremal divisorial contraction
+					\item Either $p,q$ are both Mori Fibre Spaces (this is type $IV_{m}$) or they are both small contractions (type $IV_{s}$)
+				\end{itemize}
+				
+			\end{block}
+			
+			If two Mori Fibre Spaces are outputs of the MMP from the same starting point, then we expect them to be connected by Sarkisov links. By \cite{hacon2009sarkisov} this follows from Finiteness of Minimal Models. The links correspond to boundaries in the decomposition of a polytope of divisors on some birational model.
+			
+			
+			
+		\end{column}
+		
+		\separatorcolumn
+	\end{columns}
+\end{frame}
+
+\end{document}
