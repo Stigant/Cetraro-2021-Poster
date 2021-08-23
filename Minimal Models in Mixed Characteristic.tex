@@ -1,10 +1,5 @@
 % Gemini theme
 % https://github.com/anishathalye/gemini
-%
-% We try to keep this Overleaf template in sync with the canonical source on
-% GitHub, but it's recommended that you obtain the template directly from
-% GitHub to ensure that you are using the latest version.
-
 \documentclass[final]{beamer}
 \listfiles
 % ====================
@@ -13,13 +8,37 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[size=a0,scale=1.1]{beamerposter}
+\usepackage[size=a0,scale=1]{beamerposter}
 \usetheme{gemini}
 \usecolortheme{IC}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{tikz-cd}
+\usepackage[backend=bibtex,style=numeric,maxnames=2, minnames=2]{biblatex}
+\addbibresource{refs.bib}
+
+
+\AtEveryBibitem{
+	\clearfield{month}
+	\clearfield{series}
+	\clearfield{venue}
+	\clearname{editor}
+	\clearlist{publisher}
+	\clearlist{location} % alias to field 'address'
+	\clearfield{doi}
+	\clearfield{url}
+	\clearfield{venue}
+	\clearfield{issn}
+	\clearfield{isbn}
+	\clearfield{urldate}
+	\clearfield{eventdate}
+	\clearfield{pages}
+	\clearfield{booktitle}
+	\clearfield{journaltitle}
+	\clearfield{number}
+	\clearfield{volume}
+}
 
 
 
@@ -67,11 +86,11 @@
 	\begin{columns}[t]
 		\separatorcolumn
 		
-		\begin{column}{\colwidth}
+		\begin{column}{0.15\paperwidth}
 			
 			\begin{block}{Abstract}
 				
-				Recent work of Bhatt et al. has established the bulk of the Minimal Model Program for klt threefolds over suitable mixed characteristic bases. This poster focuses on subsequent work to extend and apply these results. In particular on the Abundance and Finiteness of Minimal Models results and their applications to Invariance of Plurigenera and the Sarkisov program respectively.
+				Recent work of Bhatt et al. has established the bulk of the Minimal Model Program for klt threefolds over suitable mixed characteristic bases. This poster focuses on subsequent work to extend and apply these results. In particular on the Abundance and Finiteness of Minimal Models results and their applications.
 				
 			\end{block}
 			
@@ -88,94 +107,41 @@
 				\end{enumerate}
 				
 				The output is not unique but it's nature is determined by the curvature of $X$. Either every possible output is a Mori Fibre Space or they are all Minimal Models.
+				
+				In practice we work with pairs $(X,B)$ consisting of a variety, $X$ and a divisor $B$. We then use $K_{X}+B$ instead of just $K_{X}$.
+				
+				Here 'good' singularities means klt and $\mathbb{Q}$-factorial. A rather backwards definition is that $(X,B)$ is a klt pair if it comes from an MMP for some log smooth pair $(X',B')$ where $B'$ is a divisor with coefficients less than $1$.
 			\end{block}
 			
 			
 			\begin{block}{Bibliography}
-				\bibliographystyle{amsalpha}
-				\bibliography{refs}
+				\printbibliography
 			\end{block}
 			
 		\end{column}
 		
 		\separatorcolumn
 		
-		\begin{column}{1.5\colwidth}
+		\begin{column}{0.39\paperwidth}
 			
-			
-			
-			\begin{block}{The Abundance Conjecture}
+			\begin{block}{Abundance Conjecture}
 				
-				The Abundance Conjecture is one of the most important descriptions of the expected geometric properties of minimal models. It is unknown in general.
+				When $(X,B)$ is a minimal model we expect it to have some quite specific geometry. Probably the most important conjecture here is the \texbf{Abundance Conjecture}. When $B=0$ it says, roughly speaking, that $X$ looks like a fibration of flat varieties over a lower dimensional one. E.g. An elliptic fibration. 
 				
-				It says that when $K_{X}$ is nef, then it should be semiample. The induced morphism is called the \textbf{Ample Model}
+				More accurately, it says that if $K_X+B$ is nef, then it should be semiample.
 				
-				Since the result holds for surfaces in characteristic $0$, it is immediate that there is a rational map $\phi: X \dashrightarrow Y$ induced by $K_{X}+B$. After \cite{bhatt2020}, the main difficulties came in proving this result when $\dim Y =2$.
-				
-			\end{block}
-			
+				If $\pi:(X,B) \dashrightarrow (X,B')$ is a minimal model and $\phi: X' \to Z$ is induced by abundance then $\phi \circ \phi $ is the (unique) \texbf{ample model} of $(X,B)$.
+			\end{block}  
 			
 			\begin{alertblock}{Abundance Theorem}
 				Let $(X,B)$ be a klt threefold $R$-pair with $\mathbb{R}$-boundary. If $K_X+B$ is nef, then it is semiample.
 			\end{alertblock}  
 			
-			\begin{block}{Idea of proof}
-				
-				\begin{enumerate}
-					\item \textbf{$L=K_{X}+B$ should be EWM} - that is there is a contraction to an algebraic space $Z$ which looks numerically like the fibration we want \\
-					\item After some birational modification $X \to Z$ should be \textbf{equidimensional}\\
-					\item If $C$ is a mixed charactertistic curve on $Z$, then $X_{C}=X\times_{Z} C \to C$ is a flat morphism and $L_{C}=L|_{X_{C}}$ is nef, numerically trivial and generically semiample, so \textbf{$L|_{C}$ is semiample}
-					\item If $F$ is any closed fibre of $X \to Z$, then \textbf{$L|_{F} \sim_{\mathbb{R}} 0$}, so \textbf{$L$ must be semiample}
-				\end{enumerate}
-				
-				
-			\end{block}
-			
-			\begin{block}{Application: Asymptotic Invariance of Plurigenera}
-				
-				In characteristic $0$ if $X \to C$ is a smooth family of varieties we expect $h^{0}(X_{t},mK_{X_{t}})$ (the \textbf{plurigenera}) to be invariant for $t \in C$ for $m > 0$.
-				
-				In general this \textbf{fails in mixed characteristic} \cite{Bri20}, even for arbitrarily large $m$.
-				
-				Suppose $X \to C$ is a mixed characteristic family of surfaces. Subject to some conditions on the singularities of the family, we can \textbf{run an MMP which preserves the plurigenera} for large $m$. This leaves us with nef $K_{X}$, thus by Abundance it is semiample and we have $f:X \to Y$ with $f^{*}D=K_{X}$ for some $D$ ample on $Y$.
-				
-				Since $D$ is ample \textbf{$h^{0}(Y_{t},mD|_{Y_{t}})$ is invariant} for large $m$. If we can show these correspond to $h^{0}(X_{t},mK_{X_{t}})$ then we're done.
-				
-				In fact this is true when \textbf{$-K_{X_{t}}$ is big and nef} over $Y_{t}$, so it holds whenever the fibres of $Y$ are not elliptic curves. In this final case the result can fail to hold.
-				
-			\end{block}
-			
-			\begin{alertblock}{Asymptotic Invariance of Plurigenera}
-				
-				Let $f:(X,B)\to R$ be a klt $R$-pair with $\mathbb{Q}$-boundary of dimension $3$. Suppose that all of the following are satisfied:
-				
-				\begin{enumerate}
-					\item $(X,B+X_{k})$ is plt;
-					\item $\dim V_{k}=\dim V -1$ for all non-canonical centres $V$ of $(X,B)$;
-					\item $\mathbf{B}_{-}(K_{X_k}+B_k)$ contains no non-canonical centres of $(X_k,B_k)$.
-				\end{enumerate}
-				
-				Suppose further that at least one of the following holds:
-				\begin{enumerate}
-					\item[(a)] $\kappa(K_{X_{k}}+B_{k}) \neq 1$; or
-					\item[(b)] $B_{k}$ is big over $\text{Proj}(K_{X_{k}}+B_{k})$
-				\end{enumerate}	
-				Then there is $m_{0} \in \mathbb{N}$ such that 
-				$$H^{0}(X_{K},m(K_{X_{K}}+B_{K}))=H^{0}(X_{k},m(K_{X_{k}}+B_{k}))$$
-				for all $m \in m_{0}\mathbb{N}$.
-				
-			\end{alertblock}
-			
-		\end{column}
-		
-		\separatorcolumn
-		
-		\begin{column}{2.5\colwidth}
-			
-			
 			\begin{block}{Geography of Ample Models - Example}
 				
-				Let $S$ be the blowup of $\mathbb{P}^{2}_{k}$ at $2$ points. Let $E_{1},E_{2}$ be the exceptional curves of $S \to \mathbb{P}^{2}_{k}$ and $L$ the strict transform of a line, so $L,E_{1},E_{2}$ span $\text{Pic}(S)$. Choose $A \sim -K_{S}$ with $(S,A+E_{1}+E_{2}+L)$ log smooth. Let $C$ be the triangle spanned by $L,E_{1},E_{2}$. Then for $B \in C$ the minimal model of $K_{S}+A+B$ corresponds to a Mori Fibre Space of $S$ according to a decomposition of $C$ as below. Moreover if $B$ is on the boundary of $C$ the morphism induced by Abundance is the Mori Fibration.
+				Let $S$ be the blowup of $\mathbb{P}^{2}_{k}$ at $2$ points $p_{1},p_{2}$. Let $E_{1},E_{2}$ be the exceptional curves of $S \to \mathbb{P}^{2}_{k}$ and $L$ the strict transform of through £$p_{1}, p_{2}$, so $L,E_{1},E_{2}$ span $\text{Pic}(S)$. Choose $A \sim -K_{S}$ with $(S,A+E_{1}+E_{2}+L)$ log smooth. 
+				
+				Let $C$ be the triangle spanned by $L,E_{1},E_{2}$. Then for $B \in C$ the \textbf{ample model} of $K_{S}+A+B$ corresponds to polygon in a decomposition of $C$ as below.
 				
 				\begin{center}
 					\tikzset{every picture/.style={line width=1pt}} %set default line width to 0.75pt        
@@ -231,7 +197,90 @@
 					
 					\end{tikzpicture}
 				\end{center}
+				
+				The decomposition of $C$ describes the geometry of the Mori Fibre spaces.
+				
+				\begin{enumerate}
+					\item Triangles inside $C$ with a side along the boundary correspond to Mori Fibre Spaces
+					\item Shared sides of triangles correspond to blowups
+					\item All the morphisms are induced by abundance for pairs on the corresponding polygon
+				\end{enumerate}
+				\begin{figure}
+					\centering
+					\begin{tikzpicture}
+					\node[anchor=north, inner sep=0] (image) at (0,0) {
+						\includegraphics[scale=0.75]{Diagram.png}
+					};
+					
+					
+					%\draw (1,1) node [anchor=north west, inner sep=1pt]  [opacity=1 ,xscale=1.5,yscale=1.5]  {$S$}
+					\draw (0,2.5) node [anchor=north east, inner sep=1pt]  [color=black ,opacity=1 ,xscale=3,yscale=3]  {$S$};
+					
+					\draw (-19,-17) node [anchor=north west, inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{2}$};
+					
+					\draw (-15,-5) node [anchor=south west, inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}_{1}$};
+					
+					\draw (15,0) node [anchor=north west, inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}\times \mathbb{P}^{1}$};
+					
+					\draw (0,-15) node [anchor=north west, inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
+					
+					\draw (17,-15) node [anchor=north west, inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
+					
+					
+					%%Arrows
+					
+					\draw [-to, line width=1.5mm] (0,0.5) -- (2.5,-2) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\pi_{3}$};
+					
+					\draw [-to, line width=1.5mm](-2,0.5) -- (-6,-3.5) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\pi_{2}$};
+					
+					\draw [-to, line width=1.5mm](-12,-10.45) -- (-15,-13.40) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\pi_{1}$} ;
+					
+					\draw [-to, line width=1.5mm](-8.5,-8.5) -- (-2.5,-14.5) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\phi_{1}$};
+					
+					\draw [-to, line width=1.5mm](8,-6) -- (4,-10)  node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\phi_{2}$};
+					
+					\draw [-to, line width=1.5mm](13,-12) -- (15.5,-14.5) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\phi_{3}$} ;
+					\end{tikzpicture}
+				\end{figure}
+				
+				
+				
 			\end{block}
+			
+			
+			%\begin{alertblock}{Abundance Theorem}
+			%Let $(X,B)$ be a klt threefold $R$-pair with $\mathbb{R}$-boundary. If $K_X+B$ is nef, then it is %semiample.
+			%\end{alertblock}  
+			
+			
+			
+		\end{column}
+		
+		\separatorcolumn
+		
+		\begin{column}{0.44\paperwidth}
+			
+			\begin{block}{Geography of Ample Models - Definitions}
+				Fix a $\mathbb{Q}$-divisor $A\geq 0$. Let $V$ be a finite dimensional, rational affine subspace of $WDiv_{\mathbb{R}}(X)$ containing no components of $A$. Such a $V$ is called a coefficient space (for A).
+				
+				We have the following.
+				\[V_{A}= \{A+B: B \in V\}\]
+				\[\mathcal{L}_{A}(V)=\{\Delta=A+B \in V_{A}: (X,\Delta) \text{ is klt}\}\]
+				
+				If $C \subseteq \mathcal{RL}_{A}(V)$ is a rational polytope then we have
+				\[\mathcal{E}(C)=\{\Delta \in C: K_{X}+\Delta \text{ is pseudoeffective}\}\]
+				
+				Given a birational contraction $\phi:X \dashrightarrow Y$ we also define
+				\[\mathcal{W}_{\phi}(C)=\{\Delta \in \mathcal{E}(C): \phi \text{ is a weak log canonical (wlc) model of } (X,\Delta)\}\]
+				and given a rational map $\psi:X \dashrightarrow Z$ we have its ample class
+				\[\mathcal{A}_{\phi}(C)=\{\Delta \in \mathcal{E}(C): \phi \text{ is the ample model of } (X,\Delta)\}\]
+				
+				Roughly speaking a wlc model is an output of the MMP. An ample model is the map induce by abundance from a wlc model.\\
+				\hfill \break
+				These definitions sweep some of the mxied characteristic specific difficulties. Rather than working with klt pairs, we have to work with rlt pairs. Roughly speaking this are pairs which can be replaced by a klt pair locally over a base. This is due to the lack of global Bertini type theorems.
+				
+			\end{block}
+			
 			\begin{alertblock}{Finiteness of Minimal Models}
 				Let $X$ be a threefold over $R$. Let $C$ be a polytope inside $\mathcal{L}_{A}(V)$. Suppose there is a boundary $A+B \in \mathcal{L}_{A}(V)$ such that $(X,A+B)$ is a klt pair. Then the following hold:
 				
@@ -264,9 +313,7 @@
 				
 			\end{block}
 			
-			If two Mori Fibre Spaces are outputs of the MMP from the same starting point, then we expect them to be connected by Sarkisov links. By \cite{hacon2009sarkisov} this follows from Finiteness of Minimal Models. The links correspond to boundaries in the decomposition of a polytope of divisors on some birational model.
-			
-			
+			The idea here is exactly the same as the example. We find a roof $R$ dominating $X,Y$ and a polygon $C\subseteq \mathcal{L}_{A}(V)$ such that $X,Y$ correspond to ample classes its decomposition (called a \textbf{geography}). The Sarkisov links then correspond the boundaries between ample classes. That Finiteness of Minimal Models implies the Sarkisov program is essentially due to \cite{HMX13}, though a few modifications are need in mixed characteristic.
 			
 		\end{column}
 		
