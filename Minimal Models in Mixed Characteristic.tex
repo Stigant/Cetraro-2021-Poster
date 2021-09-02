@@ -15,7 +15,7 @@
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{tikz-cd}
-\usepackage[backend=bibtex,style=numeric,maxnames=2, minnames=2]{biblatex}
+\usepackage[backend=bibtex,style=numeric,maxnames=3, minnames=1]{biblatex}
 \addbibresource{refs.bib}
 
 
@@ -50,8 +50,8 @@
 % (N+1)*\sepwidth + N*\colwidth = \paperwidth
 \newlength{\sepwidth}
 \newlength{\colwidth}
-\setlength{\sepwidth}{0.00\paperwidth}
-\setlength{\colwidth}{0.19\paperwidth}
+\setlength{\sepwidth}{0.005\paperwidth}
+\setlength{\colwidth}{0.18\paperwidth}
 
 \newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
 
@@ -86,11 +86,11 @@
 	\begin{columns}[t]
 		\separatorcolumn
 		
-		\begin{column}{0.15\paperwidth}
+		\begin{column}{0.14\paperwidth}
 			
 			\begin{block}{Abstract}
 				
-				Recent work of Bhatt et al. has established the bulk of the Minimal Model Program for klt threefolds over suitable mixed characteristic bases. This poster focuses on subsequent work to extend and apply these results. In particular on the Abundance and Finiteness of Minimal Models results and their applications.
+				Recent work of Bhatt et al.\cite{bhatt2020} has established the bulk of the Minimal Model Program for klt threefolds over suitable mixed characteristic bases. This poster focuses on subsequent work to extend and apply these results. In particular on the Abundance and Finiteness of Minimal Models results and their applications.
 				
 			\end{block}
 			
@@ -106,11 +106,11 @@
 					\item \textbf{$X'$ is a Mori Fibre Space} - it admits a fibration $X' \to  Z$ such that $-K_{X'}$ is ample over $Z$ 
 				\end{enumerate}
 				
-				The output is not unique but it's nature is determined by the curvature of $X$. Either every possible output is a Mori Fibre Space or they are all Minimal Models.
+				The output is \textbf{not unique} but its nature is determined by the curvature of $X$. Either every possible output is a Mori Fibre Space or they are all Minimal Models.
 				
-				In practice we work with pairs $(X,B)$ consisting of a variety, $X$ and a divisor $B$. We then use $K_{X}+B$ instead of just $K_{X}$.
+				In practice we work with \textbf{pairs $(X,B)$} consisting of a variety, $X$ and a divisor (called a \textbf{boundary}) $B$. We then use $K_{X}+B$ instead of just $K_{X}$.
 				
-				Here 'good' singularities means klt and $\mathbb{Q}$-factorial. A rather backwards definition is that $(X,B)$ is a klt pair if it comes from an MMP for some log smooth pair $(X',B')$ where $B'$ is a divisor with coefficients less than $1$.
+				Here 'good' singularities means \textbf{klt} and $\mathbb{Q}$-factorial. A rather backwards definition is that $(X,B)$ is a klt pair if it comes from an MMP for some log smooth pair $(X',B')$ where $B'$ is a divisor with coefficients less than $1$.
 			\end{block}
 			
 			
@@ -120,37 +120,36 @@
 			
 		\end{column}
 		
-		\separatorcolumn
 		
-		\begin{column}{0.39\paperwidth}
+		\begin{column}{0.36\paperwidth}
 			
 			\begin{block}{Abundance Conjecture}
 				
-				When $(X,B)$ is a minimal model we expect it to have some quite specific geometry. Probably the most important conjecture here is the \texbf{Abundance Conjecture}. When $B=0$ it says, roughly speaking, that $X$ looks like a fibration of flat varieties over a lower dimensional one. E.g. An elliptic fibration. 
+				When $(X,B)$ is a minimal model we expect it to have some quite specific geometry. Probably the most important conjecture here is the \texbf{Abundance Conjecture}. When $B=0$ it says, roughly speaking, that $X$ looks like a fibration of varieties with flat curvature over a lower dimensional one. E.g. An elliptic fibration. 
 				
-				More accurately, it says that if $K_X+B$ is nef, then it should be semiample.
+				More precisely, it says that if $K_X+B$ is nef, then it should be semiample.
 				
-				If $\pi:(X,B) \dashrightarrow (X,B')$ is a minimal model and $\phi: X' \to Z$ is induced by abundance then $\phi \circ \phi $ is the (unique) \texbf{ample model} of $(X,B)$.
+				If $\pi:(X,B) \dashrightarrow (X,B')$ is a minimal model and $\phi: X' \to Z$ is induced by abundance then $\phi \circ \pi $ is the (unique) \textbf{ample model} of $(X,B)$.
 			\end{block}  
 			
-			\begin{alertblock}{Abundance Theorem}
+			\begin{alertblock}{Thereom: Abundance in Mixed Characteristic}
+				Let $R$ be an excellent, Noetherian ring admitting a dualising complex with residue fields of characteristic $p > 5$.
 				Let $(X,B)$ be a klt threefold $R$-pair with $\mathbb{R}$-boundary. If $K_X+B$ is nef, then it is semiample.
 			\end{alertblock}  
 			
 			\begin{block}{Geography of Ample Models - Example}
 				
-				Let $S$ be the blowup of $\mathbb{P}^{2}_{k}$ at $2$ points $p_{1},p_{2}$. Let $E_{1},E_{2}$ be the exceptional curves of $S \to \mathbb{P}^{2}_{k}$ and $L$ the strict transform of through £$p_{1}, p_{2}$, so $L,E_{1},E_{2}$ span $\text{Pic}(S)$. Choose $A \sim -K_{S}$ with $(S,A+E_{1}+E_{2}+L)$ log smooth. 
+				Let $S$ be the blowup of $\mathbb{P}^{2}_{\kappa}$ at $2$ points $p_{1} \neq p_{2}$. Let $E_{1},E_{2}$ be the exceptional curves of $S \to \mathbb{P}^{2}_{\kappa}$ and $L$ the strict transform of a line through $p_{1}, p_{2}$, so $L,E_{1},E_{2}$ span $\text{Pic}(S)$. Choose $A \sim -K_{S}$ with $(S,A+E_{1}+E_{2}+L)$ log smooth. 
 				
-				Let $C$ be the triangle spanned by $L,E_{1},E_{2}$. Then for $B \in C$ the \textbf{ample model} of $K_{S}+A+B$ corresponds to polygon in a decomposition of $C$ as below.
+				Let $T$ be the triangle formed by $L,E_{1},E_{2}$. Then for $B \in T$ the \textbf{ample model} of $K_{S}+A+B$ corresponds to polygon in a decomposition of $T$ as below.
 				
 				\begin{center}
-					\tikzset{every picture/.style={line width=1pt}} %set default line width to 0.75pt        
+					\tikzset{every picture/.style={line width=1pt}} %set default line width to 1pt        
 					
 					\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-2,xscale=2]
-					%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
 					
 					%Shape: Triangle [id:dp7805322996155986] 
-					\draw   (300,20) -- (480,240) -- (120,240) -- cycle ;
+					\draw   (300,20) -- (480,240) -- (120,240) -- cycle;
 					%Straight Lines [id:da6385330333329691] 
 					\draw    (210,130) -- (390,130) ;
 					%Straight Lines [id:da012291614577248033] 
@@ -159,68 +158,61 @@
 					\draw    (390,130) -- (120,240) ;
 					
 					% Text Node
-					\draw (160,115) node [anchor=north west][inner sep=0.75pt]  [xscale=1,yscale=1]  {$\frac{L+E_{1}}{2}$};
+					\draw (210,125) node [anchor=east][inner sep=2pt]  [xscale=1.25,yscale=1.25]  {$\frac{L+E_{1}}{2}$};
 					% Text Node
-					\draw (395,115) node [anchor=north west][inner sep=0.75pt]  [xscale=1,yscale=1]  {$\frac{L+E_{2}}{2}$};
+					\draw (390,125) node [anchor=west][inner sep=2pt]  [xscale=1.25,yscale=1.25]   {$\frac{L+E_{2}}{2}$};
 					% Text Node
-					\draw (90,230) node [anchor=north west][inner sep=0.75pt]  [xscale=1,yscale=1]   {$ \begin{array}{l}
-						E_{1}\\
-						\end{array}$};
+					\draw (120,240) node [anchor=north east][inner sep=1pt]  [xscale=1.25,yscale=1.25]    {$E_{1}$};
 					% Text Node
-					\draw (485,230) node [anchor=north west][inner sep=0.75pt]  [xscale=1,yscale=1]   {$ \begin{array}{l}
-						E_{2}\\
-						\end{array}$};
+					\draw (480,240) node [anchor=north west][inner sep=1pt]  [xscale=1.25,yscale=1.25]    {$E_{2}$};
 					% Text Node
-					\draw (295,0) node [anchor=north west][inner sep=0.75pt]  [xscale=1,yscale=1]   {$ \begin{array}{l}
-						L\\
-						\end{array}$};
+					\draw (300,15) node [anchor=south][inner sep=1pt]  [xscale=1.25,yscale=1.25]   {$L$};
 					% Text Node
-					\draw (230,50) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
+					\draw (260,75) node [anchor=south east][inner sep=2pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
 					% Text Node
-					\draw (140,160) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
+					\draw (170,185) node [anchor=south east][inner sep=2pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
 					% Text Node
-					\draw (360,50) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
+					\draw (345,75) node [anchor=south west][inner sep=2pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
 					% Text Node
-					\draw (440,160) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
+					\draw (435,185) node [anchor=south west][inner sep=2pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
 					% Text Node
-					\draw (260,80) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}\times\mathbb{P}^{1}$};
+					\draw (300,100) node [anchor=center][inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}\times\mathbb{P}^{1}$};
 					% Text Node
-					\draw (200,160) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}^{1}$};
+					\draw (240,185) node [anchor=south east][inner sep=2pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}^{1}$};
 					% Text Node
-					\draw (375,160) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}^{1}$};
+					\draw (360,185) node [anchor=south west][inner sep=2pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}^{1}$};
 					% Text Node
-					\draw (295,250) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$k$};
+					\draw (300,260) node [anchor=center][inner sep=0pt] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\kappa$};
 					% Text Node
-					\draw (295,200) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{2}$};
+					\draw (300,200) node [anchor=center][inner sep=0pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{2}$};
 					% Text Node
-					\draw (295,135) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$S$};
+					\draw (300,150) node [anchor=center][inner sep=0pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$S$};
 					
 					\end{tikzpicture}
 				\end{center}
 				
-				The decomposition of $C$ describes the geometry of the Mori Fibre spaces.
-				
+				The decomposition of $T$ describes the geometry of the Mori fibre spaces.
 				\begin{enumerate}
-					\item Triangles inside $C$ with a side along the boundary correspond to Mori Fibre Spaces
+					\item Triangles inside $T$ with a side along the boundary correspond to Mori fibre spaces
 					\item Shared sides of triangles correspond to blowups
-					\item All the morphisms are induced by abundance for pairs on the corresponding polygon
+					\item All the morphisms (blowups and Mori fibrations) are induced by abundance for pairs on the corresponding polygon
 				\end{enumerate}
 				\begin{figure}
 					\centering
 					\begin{tikzpicture}
 					\node[anchor=north, inner sep=0] (image) at (0,0) {
-						\includegraphics[scale=0.75]{Diagram.png}
+						\includegraphics[scale=0.75]{Diagram3.png}
 					};
 					
 					
-					%\draw (1,1) node [anchor=north west, inner sep=1pt]  [opacity=1 ,xscale=1.5,yscale=1.5]  {$S$}
-					\draw (0,2.5) node [anchor=north east, inner sep=1pt]  [color=black ,opacity=1 ,xscale=3,yscale=3]  {$S$};
+					%5Labels
+					\draw (0.25,2.75) node [anchor=north east, inner sep=1pt]  [color=black ,opacity=1 ,xscale=3,yscale=3]  {$S$};
 					
 					\draw (-19,-17) node [anchor=north west, inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{2}$};
 					
-					\draw (-15,-5) node [anchor=south west, inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}_{1}$};
+					\draw (-12.5,-3) node [anchor=south east, inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}_{1}$};
 					
-					\draw (15,0) node [anchor=north west, inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}\times \mathbb{P}^{1}$};
+					\draw (16,-3) node [anchor=south west, inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}\times \mathbb{P}^{1}$};
 					
 					\draw (0,-15) node [anchor=north west, inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}$};
 					
@@ -229,15 +221,15 @@
 					
 					%%Arrows
 					
-					\draw [-to, line width=1.5mm] (0,0.5) -- (2.5,-2) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\pi_{3}$};
+					\draw [-to, line width=1.5mm] (0.25,0.75) -- (2,-1) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\pi_{3}$};
 					
-					\draw [-to, line width=1.5mm](-2,0.5) -- (-6,-3.5) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\pi_{2}$};
+					\draw [-to, line width=1.5mm](-1.75,0.75) -- (-6,-3.5) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\pi_{2}$};
 					
-					\draw [-to, line width=1.5mm](-12,-10.45) -- (-15,-13.40) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\pi_{1}$} ;
+					\draw [-to, line width=1.5mm](-12.5,-10) -- (-15.5,-13) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\pi_{1}$} ;
 					
 					\draw [-to, line width=1.5mm](-8.5,-8.5) -- (-2.5,-14.5) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\phi_{1}$};
 					
-					\draw [-to, line width=1.5mm](8,-6) -- (4,-10)  node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\phi_{2}$};
+					\draw [-to, line width=1.5mm](7.5,-6.5) -- (4,-10)  node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\phi_{2}$};
 					
 					\draw [-to, line width=1.5mm](13,-12) -- (15.5,-14.5) node[midway,sloped,above, xscale=1.5,yscale=1.5]  {$\phi_{3}$} ;
 					\end{tikzpicture}
@@ -256,18 +248,17 @@
 			
 		\end{column}
 		
-		\separatorcolumn
 		
 		\begin{column}{0.44\paperwidth}
 			
 			\begin{block}{Geography of Ample Models - Definitions}
-				Fix a $\mathbb{Q}$-divisor $A\geq 0$. Let $V$ be a finite dimensional, rational affine subspace of $WDiv_{\mathbb{R}}(X)$ containing no components of $A$. Such a $V$ is called a coefficient space (for A).
+				Fix a $\mathbb{Q}$-divisor $A\geq 0$. Let $V$ be a finite dimensional, rational affine subspace of $WDiv_{\mathbb{R}}(X)$ containing no components of $A$.
 				
 				We have the following.
 				\[V_{A}= \{A+B: B \in V\}\]
 				\[\mathcal{L}_{A}(V)=\{\Delta=A+B \in V_{A}: (X,\Delta) \text{ is klt}\}\]
 				
-				If $C \subseteq \mathcal{RL}_{A}(V)$ is a rational polytope then we have
+				If $C \subseteq \mathcal{L}_{A}(V)$ is a \textbf{rational polytope} then we have
 				\[\mathcal{E}(C)=\{\Delta \in C: K_{X}+\Delta \text{ is pseudoeffective}\}\]
 				
 				Given a birational contraction $\phi:X \dashrightarrow Y$ we also define
@@ -275,13 +266,16 @@
 				and given a rational map $\psi:X \dashrightarrow Z$ we have its ample class
 				\[\mathcal{A}_{\phi}(C)=\{\Delta \in \mathcal{E}(C): \phi \text{ is the ample model of } (X,\Delta)\}\]
 				
-				Roughly speaking a wlc model is an output of the MMP. An ample model is the map induce by abundance from a wlc model.\\
+				Roughly speaking a \textbf{wlc model} is an output of the MMP and an \texbf{ample model} is the map induced by abundance from a wlc model. On the diagram to the left the wlc models correspond to the interior triangles and the ample models to unions of their faces. The theorem below essentially says that these decompositions always exist.
+				
+				\\
 				\hfill \break
-				These definitions sweep some of the mxied characteristic specific difficulties. Rather than working with klt pairs, we have to work with rlt pairs. Roughly speaking this are pairs which can be replaced by a klt pair locally over a base. This is due to the lack of global Bertini type theorems.
+				These definitions ignore some of the mixed characteristic specific difficulties. Rather than working with klt pairs, we have to work with \textbf{rlt pairs}. Essentially these are pairs which can be replaced by a klt pair locally over a base. This is due to the lack of global Bertini type theorems. For example if $A$ is ample on $X$, $(X,A)$ need not be klt but it is always rlt.
 				
 			\end{block}
 			
-			\begin{alertblock}{Finiteness of Minimal Models}
+			\begin{alertblock}{Theorem: Finiteness of Minimal Models}
+				Let $R$ be an excellent ring admitting a dualising complex with residue fields of characteristic $p > 5$.
 				Let $X$ be a threefold over $R$. Let $C$ be a polytope inside $\mathcal{L}_{A}(V)$. Suppose there is a boundary $A+B \in \mathcal{L}_{A}(V)$ such that $(X,A+B)$ is a klt pair. Then the following hold:
 				
 				\begin{enumerate}
@@ -296,7 +290,7 @@
 			\end{alertblock}
 			
 			\begin{block}{Application: Sarkisov Program}
-				If $f:X \to Z$, $g:Y \to W$ are two Mori Fibre Spaces, a Sarkisov link $s:X \dashrightarrow Y$ is one the following.
+				If $f:X \to Z$, $g:Y \to W$ are two Mori Fibre Spaces, a \textbf{Sarkisov link} $s:X \dashrightarrow Y$ is one the following.
 				
 				\[\begin{tikzcd}
 				X' \arrow[d] \arrow[r, dotted] \arrow[r, "I", phantom, bend left=49] & Y \arrow[d]  & X' \arrow[r, dotted] \arrow[d] \arrow[r, "II",phantom, bend left=49] & Y' \arrow[d] & X \arrow[r, dotted] \arrow[d] \arrow[r, "III", phantom, bend left=49] & Y' \arrow[d] & X \arrow[d] \arrow[rr, dotted] \arrow[rr, "IV",phantom, bend left] &   & Y \arrow[d]       \\
@@ -305,16 +299,18 @@
 				\end{tikzcd} \]
 				where
 				\begin{itemize}
-					\item The horizontal map is a sequence of flops (codimension 2 birational transformations) for this pair
+					\item The horizontal map is a sequence of flops (codimension 2 birational transformations)
 					\item Every vertical morphism is a contraction
 					\item If the target of a vertical morphism is $X$ or $Y$ then it is an extremal divisorial contraction
 					\item Either $p,q$ are both Mori Fibre Spaces (this is type $IV_{m}$) or they are both small contractions (type $IV_{s}$)
 				\end{itemize}
 				
+				
+				
+				The idea here is exactly the same as the example. We find a roof $T$ dominating $X,Y$ and a polygon $C\subseteq \mathcal{L}_{A}(V)$ for suitable $A,V$ on $T$ such that $X,Y$ correspond to ample classes its decomposition (called a \textbf{geography}). The Sarkisov links then correspond to the boundaries between ample classes. On the left, $\pi_{1}$ is type $III$ and $\pi_{2} \circ \pi_{3}^{-1}$ is type $II$.\\
+				\hfill \break
+				The \textbf{Sarkisov program} says that every Mori fibre space outputs of an MMP are related by Sarkisov links. That Finiteness of Minimal Models implies the Sarkisov Program is essentially due to \cite{hacon2009sarkisov}, though a few modifications are need in mixed characteristic.
 			\end{block}
-			
-			The idea here is exactly the same as the example. We find a roof $R$ dominating $X,Y$ and a polygon $C\subseteq \mathcal{L}_{A}(V)$ such that $X,Y$ correspond to ample classes its decomposition (called a \textbf{geography}). The Sarkisov links then correspond the boundaries between ample classes. That Finiteness of Minimal Models implies the Sarkisov program is essentially due to \cite{HMX13}, though a few modifications are need in mixed characteristic.
-			
 		\end{column}
 		
 		\separatorcolumn
