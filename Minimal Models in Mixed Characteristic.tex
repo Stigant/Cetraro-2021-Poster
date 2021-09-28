@@ -125,14 +125,14 @@
 			
 			\begin{block}{Abundance Conjecture}
 				
-				When $(X,B)$ is a minimal model we expect it to have some quite specific geometry. Probably the most important conjecture here is the \texbf{Abundance Conjecture}. When $B=0$ it says, roughly speaking, that $X$ looks like a fibration of varieties with flat curvature over a lower dimensional one. E.g. An elliptic fibration. 
+				When $(X,B)$ is a minimal model we expect it to have some quite specific geometry. Probably the most important conjecture here is the \textbf{Abundance Conjecture}. When $B=0$ it says, roughly speaking, that $X$ looks like a fibration of varieties with flat curvature over a lower dimensional one. E.g. An elliptic fibration. 
 				
 				More precisely, it says that if $K_X+B$ is nef, then it should be semiample.
 				
 				If $\pi:(X,B) \dashrightarrow (X,B')$ is a minimal model and $\phi: X' \to Z$ is induced by abundance then $\phi \circ \pi $ is the (unique) \textbf{ample model} of $(X,B)$.
 			\end{block}  
 			
-			\begin{alertblock}{Thereom: Abundance in Mixed Characteristic}
+			\begin{alertblock}{Theorem: Abundance in Mixed Characteristic \cite{sbb2021}}
 				Let $R$ be an excellent, Noetherian ring admitting a dualising complex with residue fields of characteristic $p > 5$.
 				Let $(X,B)$ be a klt threefold $R$-pair with $\mathbb{R}$-boundary. If $K_X+B$ is nef, then it is semiample.
 			\end{alertblock}  
@@ -178,9 +178,9 @@
 					% Text Node
 					\draw (300,100) node [anchor=center][inner sep=1pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{P}^{1}\times\mathbb{P}^{1}$};
 					% Text Node
-					\draw (240,185) node [anchor=south east][inner sep=2pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}^{1}$};
+					\draw (240,185) node [anchor=south east][inner sep=2pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}_{1}$};
 					% Text Node
-					\draw (360,185) node [anchor=south west][inner sep=2pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}^{1}$};
+					\draw (360,185) node [anchor=south west][inner sep=2pt]  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\mathbb{F}_{1}$};
 					% Text Node
 					\draw (300,260) node [anchor=center][inner sep=0pt] [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,opacity=1 ,xscale=1.5,yscale=1.5]  {$\kappa$};
 					% Text Node
@@ -256,7 +256,7 @@
 				
 				We have the following.
 				\[V_{A}= \{A+B: B \in V\}\]
-				\[\mathcal{L}_{A}(V)=\{\Delta=A+B \in V_{A}: (X,\Delta) \text{ is klt}\}\]
+				\[\mathcal{L}_{A}(V)=\{\Delta=A+B \in V_{A}: (X,\Delta) \text{ is lc}\}\]
 				
 				If $C \subseteq \mathcal{L}_{A}(V)$ is a \textbf{rational polytope} then we have
 				\[\mathcal{E}(C)=\{\Delta \in C: K_{X}+\Delta \text{ is pseudoeffective}\}\]
@@ -266,15 +266,13 @@
 				and given a rational map $\psi:X \dashrightarrow Z$ we have its ample class
 				\[\mathcal{A}_{\phi}(C)=\{\Delta \in \mathcal{E}(C): \phi \text{ is the ample model of } (X,\Delta)\}\]
 				
-				Roughly speaking a \textbf{wlc model} is an output of the MMP and an \texbf{ample model} is the map induced by abundance from a wlc model. On the diagram to the left the wlc models correspond to the interior triangles and the ample models to unions of their faces. The theorem below essentially says that these decompositions always exist.
-				
-				\\
+				Roughly speaking a \textbf{wlc model} is an output of the MMP and an \textbf{ample model} is the map induced by abundance from a wlc model. On the diagram to the left the wlc models correspond to the interior triangles and the ample models to unions of their faces. The theorem below essentially says that these decompositions always exist.\\
 				\hfill \break
 				These definitions ignore some of the mixed characteristic specific difficulties. Rather than working with klt pairs, we have to work with \textbf{rlt pairs}. Essentially these are pairs which can be replaced by a klt pair locally over a base. This is due to the lack of global Bertini type theorems. For example if $A$ is ample on $X$, $(X,A)$ need not be klt but it is always rlt.
 				
 			\end{block}
 			
-			\begin{alertblock}{Theorem: Finiteness of Minimal Models}
+			\begin{alertblock}{Theorem: Finiteness of Minimal Models \cite{stigant2021}}
 				Let $R$ be an excellent ring admitting a dualising complex with residue fields of characteristic $p > 5$.
 				Let $X$ be a threefold over $R$. Let $C$ be a polytope inside $\mathcal{L}_{A}(V)$. Suppose there is a boundary $A+B \in \mathcal{L}_{A}(V)$ such that $(X,A+B)$ is a klt pair. Then the following hold:
 				
