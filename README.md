@@ -2,7 +2,7 @@
 
 <p align="center">
 <a href="https://github.com/Stigant/Cetraro-2021-Poster/blob/master/Minimal%20Models%20in%20Mixed%20Characteristic.pdf">
-<img src="https://raw.githubusercontent.com/Stigant/Cetraro-2021-Poster/master/poster.png">
+<img src="https://raw.githubusercontent.com/Stigant/Cetraro-2021-Poster/master/Minimal%20Models%20in%20Mixed%20Characteristic.png">
 </a>
 </p>
 
